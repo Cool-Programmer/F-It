@@ -7,5 +7,21 @@
         <%= link.user.email %>
       </small>
     </h3>
+
+	<div class="btn-group">
+		<a href="<%= link.url %>" class="btn btn-default btn-sm">Visit</a>
+		<%= link_to like_link_path(link), method: :put, class: 'btn btn-default btn-sm' do %>
+		<span class="glyphicon glyphicon-chevron-up"></span>
+		Like
+		<%= link.get_upvotes.size %>
+		<% end %>
+		
+		<%= link_to dislike_link_path(link), method: :put, class: 'btn btn-default btn-sm' do %>
+		<span class="glyphicon glyphicon-chevron-down"></span>
+		Dislike
+		<%= link.get_downvotes.size %>
+		<% end %>
+	</div>
+
   </div>
 <% end %>
